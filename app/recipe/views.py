@@ -13,7 +13,7 @@ class BaseRecipeAttrViewSet(viewsets.GenericViewSet,
     '''base viewset for user owned recipe attributes'''
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
- 
+
     def get_queryset(self):
         '''return objs for current authenticated user only'''
         return self.queryset.filter(user=self.request.user).order_by('-name')
